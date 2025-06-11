@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anket Formu</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1>Anket Formu</h1>
+    <p>Lütfen aşağıdaki anketi doldurun. Katılımınız bizim için değerlidir.</p>
+    <form id="surveyForm">
+      <label>Adınız:</label>
+      <input type="text" name="name" required />
+
+      <label>E-posta:</label>
+      <input type="email" name="email" required />
+
+      <label>Bu siteyi nasıl buldunuz?</label>
+      <select name="feedback" required>
+        <option value="">Seçiniz</option>
+        <option value="harika">Harika</option>
+        <option value="iyi">İyi</option>
+        <option value="orta">Orta</option>
+        <option value="kötü">Kötü</option>
+      </select>
+
+      <label>Yorumlarınız:</label>
+      <textarea name="comments" rows="4"></textarea>
+
+      <button type="submit">Gönder</button>
+    </form>
+    <div id="thankYouMessage" style="display: none;">
+      <h2>Teşekkürler!</h2>
+      <p>Anketi doldurduğunuz için teşekkür ederiz.</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
