@@ -1,5 +1,6 @@
-document.getElementById("surveyForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  document.getElementById("surveyForm").style.display = "none";
-  document.getElementById("thankYouMessage").style.display = "block";
+document.getElementById("testerForm").addEventListener("submit", function (e) {
+  setTimeout(function () {
+    document.getElementById("testerForm").style.display = "none";
+    document.getElementById("thankYouMessage").style.display = "block";
+  }, 100);
 });
