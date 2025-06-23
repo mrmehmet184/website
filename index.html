@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anket Formu</title>
-  <link href="style.css" rel="stylesheet" />
+  <title>BeneVocon Tester Form</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Anket Formu</h1>
-    <p>Lütfen aşağıdaki anketi doldurun. Katılımınız bizim için değerlidir.</p>
-    <form id="surveyForm">
-      <label>Adınız:</label>
-      <input type="text" name="name" required />
+    <h1>BeneVocon Quality Assurance (TESTER) Application Form</h1>
+    <form id="testerForm" action="https://formspree.io/f/mayrjgza" method="POST" enctype="multipart/form-data">
+      <label for="username">What is Your ROBLOX username?</label>
+      <input type="text" name="ROBLOX Username" id="username" required />
 
-      <label>E-posta:</label>
-      <input type="email" name="email" required />
+      <label for="email">What is Your E-mail address (Please write an e-mail address that you use in your daily life)</label>
+      <input type="email" name="Email" id="email" required />
 
-      <label>Bu siteyi nasıl buldunuz?</label>
-      <select name="feedback" required>
-        <option value="">Seçiniz</option>
-        <option value="harika">Harika</option>
-        <option value="iyi">İyi</option>
-        <option value="orta">Orta</option>
-        <option value="kötü">Kötü</option>
-      </select>
+      <label for="experience">Do you have any experience? If so, please explain</label>
+      <textarea name="Experience" id="experience" rows="4"></textarea>
 
-      <label>Yorumlarınız:</label>
-      <textarea name="comments" rows="4"></textarea>
+      <label for="errors">
+        If you do not have any experience, test the previously identified errors immediately and share the errors you find with us.<br/>
+        <a href="https://www.roblox.com/games/1818/Classic-Crossroads" target="_blank">https://www.roblox.com/games/1818/Classic-Crossroads</a>
+      </label>
+      <textarea name="Error Report" id="errors" rows="6"></textarea>
 
-      <button type="submit">Gönder</button>
+      <label for="upload">Upload screenshot or video (optional):</label>
+      <input type="file" name="Attachment" id="upload" accept="image/*,video/*" />
+
+      <button type="submit">Submit</button>
     </form>
     <div id="thankYouMessage" style="display: none;">
-      <h2>Teşekkürler!</h2>
-      <p>Anketi doldurduğunuz için teşekkür ederiz.</p>
+      <h2>Thank you!</h2>
+      <p>Your application has been submitted.</p>
     </div>
   </div>
   <script src="script.js"></script>
