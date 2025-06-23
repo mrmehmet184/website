@@ -4,4 +4,3 @@ document.getElementById("testerForm").addEventListener("submit", function (e) {
     document.getElementById("thankYouMessage").style.display = "block";
   }, 100);
 });
-
