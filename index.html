@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BeneVocon QA Application</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="style.css" />
+  <title>BeneVocon Tester Form</title>
+  <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-  <div class="container" id="formContainer">
-    <h1>BeneVocon Quality Assurance<br>(TESTER) Application Form</h1>
+  <div class="container">
+    <h1>BeneVocon Quality Assurance<br><span>(TESTER) Application Form</span></h1>
     <form id="testerForm">
       <label>What is Your ROBLOX username?</label>
-      <input type="text" id="username" required />
+      <input type="text" id="username" required/>
 
       <label>What is Your E-mail address?</label>
-      <input type="email" id="email" required />
+      <input type="email" id="email" required/>
 
       <label>Do you have any experience? If so, please explain</label>
       <textarea id="experience"></textarea>
@@ -25,23 +24,14 @@
       </label>
       <textarea id="errors"></textarea>
 
-      <label>Upload screenshots or videos (optional):</label>
-      <div class="upload-area" id="uploadArea">
-        <input type="file" id="files" multiple />
-        <div id="previewArea"></div>
-      </div>
+      <label>Upload a screenshot or video (max 10MB):</label>
+      <input type="file" id="fileInput" accept="image/*,video/*" />
 
       <p class="note">After clicking the submit button, please wait a moment.</p>
-      <button type="submit" id="submitBtn">Submit</button>
+      <button type="submit">Submit</button>
     </form>
     <footer>© BeneVocon 2025</footer>
   </div>
-
-  <div class="container" id="thankYouContainer" style="display:none;">
-    <h1>Thank you for your application!</h1>
-    <p>Your response has been submitted successfully.</p>
-  </div>
-
   <script src="script.js"></script>
 </body>
 </html>
