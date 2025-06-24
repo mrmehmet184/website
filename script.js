@@ -1,33 +1,63 @@
 
-document.getElementById("upload").addEventListener("change", function (e) {
-  const previewArea = document.getElementById("previewArea");
-  previewArea.innerHTML = "";
-  const files = Array.from(e.target.files);
+document.getElementById("testerForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const experience = document.getElementById("experience").value;
+  const errors = document.getElementById("errors").value;
+  const files = document.getElementById("files").files;
+
+  const webhookURL = "https://discord.com/api/webhooks/1387053089332269137/WvGpGnXEV7Nwp35Yygp3NvIrvsuZuvta_1EA386KZHC33I2Q5vI2nA8PyEsPmg7VZGyG";
+
+  const formData = new FormData();
+  formData.append("content", "**New Tester Application Submitted**");
+  formData.append("username", "Form Bot");
+  formData.append("embeds", JSON.stringify([{
+    title: "Application Details",
+    fields: [
+      { name: "ROBLOX Username", value: username || "N/A" },
+      { name: "Email", value: email || "N/A" },
+      { name: "Experience", value: experience || "N/A" },
+      { name: "Error Report", value: errors || "N/A" }
+    ]
+  }]));
+
   let totalSize = 0;
-
-  files.forEach((file, index) => {
-    totalSize += file.size;
-    if (totalSize > 10 * 1024 * 1024) {
-      alert("Total file size must be under 10MB!");
-      e.target.value = "";
-      previewArea.innerHTML = "";
-      return;
+  for (let i = 0; i < files.length; i++) {
+    totalSize += files[i].size;
+    if (files[i].size < 8000000) {
+      formData.append("file" + i, files[i]);
     }
-    const reader = new FileReader();
-    reader.onload = function (evt) {
-      const div = document.createElement("div");
-      div.className = "preview-item";
-      div.style.backgroundImage = `url(${evt.target.result})`;
+  }
 
-      const removeBtn = document.createElement("span");
-      removeBtn.textContent = "×";
-      removeBtn.onclick = function () {
-        files.splice(index, 1);
-        div.remove();
-      };
-      div.appendChild(removeBtn);
-      previewArea.appendChild(div);
+  if (totalSize > 10 * 1024 * 1024) {
+    alert("Total file size exceeds 10MB. Please upload smaller files.");
+    return;
+  }
+
+  await fetch(webhookURL, {
+    method: "POST",
+    body: formData
+  });
+
+  document.getElementById("formContainer").style.display = "none";
+  document.getElementById("thankYouContainer").style.display = "block";
+});
+
+// Preview
+document.getElementById("files").addEventListener("change", function () {
+  const preview = document.getElementById("previewArea");
+  preview.innerHTML = "";
+  Array.from(this.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      preview.appendChild(img);
     };
-    reader.readAsDataURL(file);
+    if (file.type.startsWith("image/")) {
+      reader.readAsDataURL(file);
+    }
   });
 });
