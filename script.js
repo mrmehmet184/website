@@ -1,46 +1,52 @@
-// script.js
-
-document.getElementById("testerForm").addEventListener("submit", async function (e) {
+document.getElementById("testerForm").addEventListener("submit", async function(e) {
   e.preventDefault();
-
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
   const experience = document.getElementById("experience").value;
   const errors = document.getElementById("errors").value;
-  const fileInput = document.getElementById("fileUpload");
+  const fileInput = document.getElementById("fileInput");
+
   const webhookURL = "https://discord.com/api/webhooks/1387053089332269137/WvGpGnXEV7Nwp35Yygp3NvIrvsuZuvta_1EA386KZHC33I2Q5vI2nA8PyEsPmg7VZGyG";
 
   const formData = new FormData();
-
-  const content = `**📝New Tester Application**\n\n**👤 Username:** ${username}\n**📧 Email:** ${email}\n**💡 Experience:** ${experience || "N/A"}\n**🐞 Error Report:** ${errors || "N/A"}`;
-
-  formData.append("content", content);
-
-  if (fileInput.files.length > 0) {
-    const file = fileInput.files[0];
-    if (file.size <= 10 * 1024 * 1024) {
-      formData.append("file", file);
-    } else {
-      alert("File size must be under 10MB.");
-      return;
-    }
+  formData.append("content", "**New Tester Application**");
+  formData.append("username", username);
+  formData.append("email", email);
+  formData.append("experience", experience);
+  formData.append("errors", errors);
+  if (fileInput.files.length > 0 && fileInput.files[0].size <= 10 * 1024 * 1024) {
+    formData.append("file", fileInput.files[0]);
   }
 
-  try {
-    const response = await fetch(webhookURL, {
+  const fields = [
+    { name: "ROBLOX Username", value: username || "N/A" },
+    { name: "Email", value: email || "N/A" },
+    { name: "Experience", value: experience || "N/A" },
+    { name: "Error Report", value: errors || "N/A" }
+  ];
+
+  const payload = {
+    content: "**New Tester Application Submitted**",
+    embeds: [
+      {
+        title: "Form Submission",
+        fields: fields
+      }
+    ]
+  };
+
+  await fetch(webhookURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  if (fileInput.files.length > 0 && fileInput.files[0].size <= 10 * 1024 * 1024) {
+    await fetch(webhookURL, {
       method: "POST",
-      body: formData,
+      body: formData
     });
-
-    if (response.ok) {
-      document.getElementById("testerForm").reset();
-      document.getElementById("formContainer").style.display = "none";
-      document.getElementById("thankYouMessage").style.display = "block";
-    } else {
-      alert("There was a problem submitting the form.");
-    }
-  } catch (error) {
-    console.error("Error submitting the form:", error);
-    alert("An error occurred. Please try again later.");
   }
+
+  document.querySelector(".container").innerHTML = "<h2>Thank you for your application!</h2><p>We have received your submission.</p>";
 });
