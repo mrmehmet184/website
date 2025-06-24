@@ -13,7 +13,7 @@ document.getElementById("testerForm").addEventListener("submit", async function(
   formData.append("username", username);
   formData.append("email", email);
   formData.append("experience", experience);
-  formData.append("Bugs", errors);
+  formData.append("errors", errors);
   if (fileInput.files.length > 0 && fileInput.files[0].size <= 10 * 1024 * 1024) {
     formData.append("file", fileInput.files[0]);
   }
@@ -22,11 +22,11 @@ document.getElementById("testerForm").addEventListener("submit", async function(
     { name: "ROBLOX Username", value: username || "N/A" },
     { name: "Email", value: email || "N/A" },
     { name: "Experience", value: experience || "N/A" },
-    { name: "Error Report", value: errors || "N/A" }
+    { name: "Bug Report", value: errors || "N/A" }
   ];
 
   const payload = {
-    content: "**New Tester Application Submitted**",
+    content: "**New Tester Application Submitted** @1332351738744930374",
     embeds: [
       {
         title: "Form Submission",
