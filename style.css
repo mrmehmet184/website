@@ -30,3 +30,27 @@ button {
 a {
   color: gold;
 }
+
+.file-upload {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.file-upload input[type="file"] {
+  display: none;
+}
+.file-upload label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  background: url('upload-icon.png') no-repeat center;
+  background-size: contain;
+  border: 2px dashed #666;
+  border-radius: 10px;
+}
+.file-upload:hover label {
+  border-color: gold;
+}
