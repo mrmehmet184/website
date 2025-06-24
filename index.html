@@ -10,7 +10,7 @@
 <body>
   <div class="container">
     <h1>BeneVocon Quality Assurance (TESTER) Application Form</h1>
-    <form id="testerForm">
+    <form id="testerForm" enctype="multipart/form-data">
       <label for="username">What is Your ROBLOX username?</label>
       <input type="text" id="username" required />
 
@@ -27,7 +27,7 @@
       <textarea id="errors" rows="6"></textarea>
 
       <label for="upload">Upload screenshots or videos (optional):</label>
-      <input type="file" id="upload" multiple />
+      <input type="file" id="upload" name="files" multiple />
 
       <p style="margin-top: 20px; font-style: italic;">After clicking the submit button, please wait a moment.</p>
 
