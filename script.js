@@ -26,7 +26,7 @@ document.getElementById("testerForm").addEventListener("submit", async function(
   ];
 
   const payload = {
-    content: "**New Tester Application Submitted** @1332351738744930374",
+    content: "**New Tester Application Submitted**",
     embeds: [
       {
         title: "Form Submission",
