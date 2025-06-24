@@ -13,7 +13,7 @@ document.getElementById("testerForm").addEventListener("submit", async function(
   formData.append("username", username);
   formData.append("email", email);
   formData.append("experience", experience);
-  formData.append("errors", errors);
+  formData.append("Bugs", errors);
   if (fileInput.files.length > 0 && fileInput.files[0].size <= 10 * 1024 * 1024) {
     formData.append("file", fileInput.files[0]);
   }
