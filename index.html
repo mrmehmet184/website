@@ -1,50 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BeneVocon Tester Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BeneVocon Tester Application</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <div class="container">
-    <h1>BeneVocon Quality Assurance (TESTER) Application Form</h1>
-    <form id="testerForm" enctype="multipart/form-data">
+    <h1>BeneVocon Quality Assurance<br />(TESTER) Application Form</h1>
+    <form id="testerForm">
       <label for="username">What is Your ROBLOX username?</label>
-      <input type="text" id="username" required />
+      <input type="text" id="username" name="username" required />
 
       <label for="email">What is Your E-mail address?</label>
-      <input type="email" id="email" required />
+      <input type="email" id="email" name="email" required />
 
       <label for="experience">Do you have any experience? If so, please explain</label>
-      <textarea id="experience" rows="4"></textarea>
+      <textarea id="experience" name="experience"></textarea>
 
       <label for="errors">
-        If you do not have any experience, test the previously identified errors and share the errors you find with us.<br/>
+        If you do not have any experience, test the previously identified errors and share the errors you find with us.<br />
         <a href="https://www.roblox.com/games/1818/Classic-Crossroads" target="_blank">https://www.roblox.com/games/1818/Classic-Crossroads</a>
       </label>
-      <textarea id="errors" rows="6"></textarea>
+      <textarea id="errors" name="errors"></textarea>
 
-      
       <label>Upload screenshots or videos (optional):</label>
-      <div class="file-upload">
-        <input type="file" id="upload" name="files" multiple />
-        <label for="upload" title="Click to upload files"></label>
+      <div class="upload-area" id="uploadArea">
+        <label for="upload" class="upload-label"></label>
+        <input type="file" id="upload" name="files" accept="image/*,video/*" multiple />
+        <div id="previewArea"></div>
       </div>
-    
 
-      <p style="margin-top: 20px; font-style: italic;">After clicking the submit button, please wait a moment.</p>
+      <p><em>After clicking the submit button, please wait a moment.</em></p>
 
       <button type="submit">Submit</button>
     </form>
-    <div id="thankYouMessage" style="display: none;">
-      <h2>Thank you!</h2>
-      <p>Your application has been submitted.</p>
-    </div>
-    <footer style="margin-top: 40px; text-align: center; color: #666;">
-      © BeneVocon 2025
-    </footer>
+    <footer>© BeneVocon 2025</footer>
   </div>
   <script src="script.js"></script>
 </body>
