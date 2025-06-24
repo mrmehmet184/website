@@ -6,7 +6,7 @@ document.getElementById("testerForm").addEventListener("submit", async function(
   const errors = document.getElementById("errors").value;
   const fileInput = document.getElementById("fileInput");
 
-  const webhookURL = "https://discord.com/api/webhooks/1387053089332269137/WvGpGnXEV7Nwp35Yygp3NvIrvsuZuvta_1EA386KZHC33I2Q5vI2nA8PyEsPmg7VZGyG";
+  const webhookURL = "https://l.webhook.party/hook/QhQM%2F61wDLvcggjfU5z0X20pNIxnSgNdHGtx7cSRz8bYokr9HHLCISTkVKKocushDvtwByxIaS0DZgveclxKmUfFr%2FvMD4BYhE7p2pHTqAukpqjDvgMQcUbfhmMxHoR4rlhPOGUZo3vsj1Dhsp02yeyfqJlo8XZ51zJ9GbFxsV7hvPeNF8myHnZXA9VSwer3UZHfOMUlnJlbI9%2FiIZbcIuFuRDNZkCcUchriiBp22wtcweBEuleNbcQefv5bed0p4RTIirzWLvAKrETCaqxop1juDdYJymtQ%2FxpaZI7KUqtcg4c0Bl3YNXg3Ckuh56l2PDW3Hg9LVolzy6hN5t%2BOktkPJS16Ze%2Fnox%2BEwoKI1SJAqKEcHfTkDi9MMX5sFh%2FE6qJDMU4tFE4%3D/e6moehMdDlMtKiga";
 
   const formData = new FormData();
   formData.append("content", "**New Tester Application**");
